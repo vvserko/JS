@@ -13,7 +13,7 @@ xhr.onload = function() {
     const result = xhr.response; //  Получаем ответ, это JSON строка
     const object = JSON.parse(result); // Преобразуем строку в JS объект
     // Пишем код домашки ТУТ!!!   
-
+/*
     object.albums.sort((a, b) => 
     {   a = a.title;
         b = b.title;
@@ -31,8 +31,25 @@ xhr.onload = function() {
         
     });
     console.log(`count= ${count}`);
+    */
+    object.user = [];
+    object.albums.forEach(element => {
+        object.user.push(object.users.filter(item => item.id === element.authorId))
+         
+    });
+
+    object.user.sort((a, b) => 
+    {   a = a.id;
+        b = b.id;
+        return a - b;
+    });
+
+     object.user.sort((a, b) => 
+    {   a = a.id;
+        b = b.id;
+        a == b ? true: false;
+    });
     console.log(object); // Выводим результат по необходимости
-   object.user = [];
 };
 
 // Этот код сработает если мы не получим ответ от сервера
