@@ -32,11 +32,18 @@ xhr.onload = function() {
     });
     console.log(`count= ${count}`);
     */
+   
+    object.albums.sort((a, b) => 
+    {   a = a.authorId;
+        b = b.authorId;
+        return a - b;
+    });
     object.user = [];
     object.albums.forEach(element => {
-        object.user.push(object.users.filter(item => item.id === element.authorId))
-         
+        const vr = object.users.find(id => id.id == element.authorId);
+        object.user.push(vr);
     });
+
 
     object.user.sort((a, b) => 
     {   a = a.id;
@@ -49,6 +56,15 @@ xhr.onload = function() {
         b = b.id;
         a == b ? true: false;
     });
+
+
+    object.user = object.user.map(item => {
+
+        const prr = object.user.includes(item.id)
+        if (prr) {return (delete item)} else 
+        {return item};
+
+    })
     console.log(object); // Выводим результат по необходимости
 };
 
