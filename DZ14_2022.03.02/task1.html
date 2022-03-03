@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        li {
+            list-style: square;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <p>text1</p>
+        </li>
+        <li>
+            <p class="small">text2</p>
+        </li>
+        <li>
+            <p>text3</p>
+        </li>
+        <li>
+            <p class="big">text4</p>
+        </li>
+        <li>
+            <p>text5</p>
+        </li>
+    </ul>
+    <script>
+        let g = document.body.getElementsByTagName('p');
+        for (el of g){
+            if(el.textContent === 'text3'){
+                el.remove();
+            }
+            el.classList.add("item");
+            el.classList.remove("item");
+            el.classList.remove("big");
+            el.classList.remove("small");
+        }      
+      
+    </script>
+</body>
+
+</html>
+
+<!--
+Сделайте текст в четных(по порядку следования) тегах p подчеркнутым
++Удалите тег p с текстом text3
++Добавьте всем элементам li CSS-класс item
+Удалите все CSS-классы у тегов p
+-->

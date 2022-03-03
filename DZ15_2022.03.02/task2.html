@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    </table>
+    <script>
+        //Написать функцию, которая строит таблицу n (кол-во столбцов) на k (кол-во строк), 
+        //используя Javascript. В каждую ячийку записать текст типа ‘n - k’
+        function table(columns, rows) {
+            let tbl = document.createElement('table');
+            document.body.prepend(tbl);
+            for (let j = 1; j <= rows; j++) {
+                let tr = document.createElement('tr');
+                tbl.append(tr);
+                for (let i = 1; i <= columns; i++) {
+                    let td = document.createElement('td');
+                    td.innerHTML = `${j}-${i}`;
+                    tr.append(td);
+                }
+            }
+        }
+
+        table(5,2);
+
+    </script>
+</body>
+
+</html>

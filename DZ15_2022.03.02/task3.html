@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Напишите функцию которая выводит календарь определенного месяца (используя список ul > li).
+        //Выведите календарь целого года
+        function table(days) {
+            let tbl = document.createElement('table');
+            document.body.prepend(tbl);
+            let i = 0;
+            while (i < 7) {
+                let tr = document.createElement('tr');
+                tbl.append(tr);
+
+                for (let j = 1; j <= days; j++) {
+                    let th = document.createElement('th');
+                    th.innerHTML = `${j}`;
+                    tr.append(th);
+                    
+                }
+                i++;
+
+            }
+        }
+        table(31);
+    </script>
+</body>
+
+</html>

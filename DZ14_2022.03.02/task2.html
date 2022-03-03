@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        div {
+            margin: 50px;
+            padding: 50px;
+            border: 2px black dashed;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div></div>
+        <div>
+            <div>
+                <div></div>
+                <div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div></div>
+            </div>
+        </div>
+        <div></div>
+        <div>
+            <div></div>
+            <div>
+                <div></div>
+            </div>
+            <div></div>
+            <div></div>
+        </div>
+        <div></div>
+    </div>
+    <script>           
+            let children = document.body.querySelector('div').childNodes;
+            for (child of children) {
+                if (!child.firstChild) {
+                    child.style.backgroundColor = 'red';
+                }               
+            }
+
+    </script>
+</body>
+
+</html>
+
+//Закрасьте все div у которых нет дочерних элементов синим цветом
+//Закрасьте все div у которых только 1 дочерний элемент желтым
+//Закрасьте все div у которых больше 2 дочерних элементов серым

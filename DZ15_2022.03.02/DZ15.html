@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+     <title>Document</title>
+</head>
+<body>
+<!--<header>
+    <nav>
+        <ul class="head-menu">
+            <li>page1</li>
+            <li>page2</li>
+            <li>page3</li>
+            <li>page4</li>
+        </ul>
+    </nav>
+</header>
+<main class="container">
+    <article>
+        <h1>title</h1>
+        <p>content</p>
+    </article>
+    <aside class="sidebar">
+        <ul>
+            <li>post1</li>
+            <li>post2</li>
+            <li>post3</li>
+        </ul>
+    </aside>
+</main>
+<footer>
+    <p>copyright <b>text</b></p>
+</footer>
+-->
+<script>
+    //В html файле с пустым body, использую javascript, создайте структуру из кода ниже
+    let header = document.createElement('header');
+    document.body.prepend(header);
+
+    let nav = document.createElement('nav');
+    header.prepend(nav);
+
+    let ul = document.createElement('ul');
+    nav.prepend(ul);
+    let li_1 = document.createElement('li');
+    li_1.innerHTML = 1;
+    ul.prepend(li_1);
+    ul.insertAdjacentHTML('beforeend', '<li>2</li>');
+
+</script>
+</body>
+</html>
+
