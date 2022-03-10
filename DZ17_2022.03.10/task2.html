@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //+Создайте список ul > li из 15 элементов. Заполните каждый цифрой он 1 до 15. Добавите обработчики событий, чтобы
+        //при клике левой кнопкой мыши цифра в li установливалась исходя из суммы 2 соседних элементов li 
+        //при клике правой кнопкой мыши цифра в li устанавливалась произведению 2 соседних элементов li
+        let ul = document.createElement('ul');
+        document.body.append(ul);
+        for (let i = 1; i <= 15; i++) {
+            let li = document.createElement('li');
+            ul.append(li);
+            li.innerHTML = i;
+        }
+        ul = document.querySelector('ul');
+        ul.addEventListener('mousedown', event => {
+            
+            if (event.target.nodeName == 'LI') {
+                if (event.which == 1) {
+                    event.target.innerHTML = (Number.parseInt(event.target.previousSibling.innerHTML) + Number.parseInt(event.target.nextSibling.innerHTML))                   
+                }
+                if (event.which == 3) {
+                    event.target.innerHTML = (Number.parseInt(event.target.previousSibling.innerHTML) * Number.parseInt(event.target.nextSibling.innerHTML))                   
+                }
+
+            }
+        })
+
+    </script>
+</body>
+
+</html>

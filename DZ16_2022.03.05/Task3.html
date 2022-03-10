@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        div{
+            top: 200px;
+            left: 200px;
+            width: 300px; 
+            height: 300px;            
+            border: 1px solid rgb(41, 26, 26);                 
+            position: fixed; 
+            justify-content: center;
+        }
+      
+    </style>
+  
+</head>
+<body>
+    <div>
+        <button>Вверх</button>
+        <button>Влево</button>
+        <button>Вниз</button>
+        <button>Вправо</button>
+    </div>
+<script>
+    let div = document.body.querySelector('div');
+    let div_coords = div.getBoundingClientRect();
+    document.body.addEventListener('click', event =>{
+        if(event.target.nodeName == 'BUTTON'){           
+            if(event.target.textContent == 'Вверх'){                
+                div.style.top = div_coords.top - 20 + 'px';                
+            } 
+            if(event.target.textContent == 'Вниз'){                
+                div.style.top = div_coords.top + 20 + 'px';                
+            } 
+            if(event.target.textContent == 'Влево'){                
+                div.style.left = div_coords.left - 20 + 'px';                
+            } 
+            if(event.target.textContent == 'Вправо'){                
+                div.style.left = div_coords.left + 20 + 'px';                
+            }
+        } 
+        return;
+    })
+
+    //Создайте div шириной и высотой 300px и добавьте в него 4 кнопки с текcтом вверх, 
+    //влево, вниз, вправо. Реализуйте функционал 
+    //сдвига div на 10px при нажатии на кнопку, соответствующую направлению
+
+   
+
+</script>
+ 
+</body>
+
+</html>

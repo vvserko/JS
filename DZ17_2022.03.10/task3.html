@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Написать функцию, которая строит таблицу n (кол-во столбцов) на k (кол-во строк), используя Javascript. 
+        //В каждую ячийку записать случайное число.
+        //При нажатии на любую ячейку таблицы, закрашивать все соседние с ней ячейки в случайный цвет
+
+        let table = document.createElement('table');
+        document.body.append(table);
+        let n = 5;
+        let k = 10;
+        for(let i = 0; i < k; i++){// количество строк
+            let tr = document.createElement('tr');
+            table.append(tr);
+            for(let j = 1; j <= n; j++){// задаем столбцы
+                let td = document.createElement('td');
+                tr.append(td);
+                td.innerHTML = `${(Math.random() * 10).toFixed(2)}`;
+            }
+        }
+        let td_row_index;
+        let tr_row_index;
+        table.addEventListener('click', event => {
+            if(event.target.nodeName == 'TD'){
+                let td = event.target;
+                event.target.previousSibling.style.background = 'red';
+                event.target.nextSibling.style.background = 'green';  
+                tr_row_index = event.target.closest('tr').rowIndex;
+                td_row_index = event.target.cellIndex;
+                let prev_row = event.target.closest('tr').previousSibling;
+                prev_row.childNodes[td_row_index].style.background = 'red';
+                prev_row.childNodes[td_row_index-1].style.background = 'red';
+                prev_row.childNodes[td_row_index+1].style.background = 'red';
+
+                let next_row = event.target.closest('tr').nextSibling;
+                next_row.childNodes[td_row_index].style.background = 'red';
+                next_row.childNodes[td_row_index-1].style.background = 'red';
+                next_row.childNodes[td_row_index+1].style.background = 'red';
+
+
+            }
+            
+        })
+        
+    </script>
+</body>
+</html>
