@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="https://cdn.pixabay.com/photo/2019/10/15/13/40/winter-4551699_960_720.jpg" alt="https://cdn.pixabay.com/photo/2019/10/15/13/40/winter-4551699_960_720.jpg">
+    
+    <script>
+    //Дан массив с картинками. Сделать, чтобы при нажатии на картинку она менялась на следующую, 
+    //последняя меняется на первую. На странице должен быть только один элемент с тегом <img>
+    //<img src="URL" alt="альтернативный текст">
+    const images = [
+    'https://cdn.pixabay.com/photo/2019/10/15/13/40/winter-4551699_960_720.jpg',
+    'https://cdn.pixabay.com/photo/2021/04/22/06/40/duck-6198196_960_720.jpg',
+    'https://cdn.pixabay.com/photo/2021/04/17/23/58/bunny-6187026_960_720.jpg',
+    'https://cdn.pixabay.com/photo/2020/09/18/21/16/child-5582985_960_720.jpg'];
+    let count = 0;
+    const img = document.body.getElementsByTagName('img');
+    document.body.addEventListener('click', event =>{
+        if(event.target.nodeName == 'IMG'){
+            console.log(images[count]);            
+            event.target.src = images[count++];
+            console.log(count);
+            if(count == 4){
+                count = 0;
+            }            
+        }
+    })
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" name="calc">
+        <input type="text" name="first" id="" autofocus> First number <br>
+        <input type="text" name="second" id=""> Second number <br>
+        <input type="checkbox" name="check" id="check"><label for="">Разность - если флажок отмечен; Сумма - если не
+            отмечен</label>
+        <p></p><br>
+        <input type="button" value="КНОПКА" name="bt">
+    </form>
+    <script>
+        //Создайте форму
+        //Добавьте в нее 2 поля для ввода текста
+        //Добавьте поле checkbox
+        //Добавьте параграф p
+        //Добавьте кнопку button
+        //При вводе чисел в текстовые поля и нажатии кнопку в p должна выводится их сумма, 
+        //если флажко checkbox будет отмечен, выводить разность чисел
+        let form = document.forms.calc;
+        let button = form.elements.bt;
+        let pg = document.body.querySelector('p');
+        console.log(form);
+        let ch = form.elements.check;
+        button.onclick = function (event) {
+            let first = Number(form.elements.first.value);
+            console.log(first);
+            let second = Number(form.elements.second.value);
+            console.log(second);
+            console.log(pg.textContent);
+            if (ch.checked) {
+                pg.textContent = first + second;
+            } else {
+                pg.textContent = first - second;
+            }
+        }
+        let p = document.body.querySelector('p'); 
+    </script>
+</body>
+
+</html>

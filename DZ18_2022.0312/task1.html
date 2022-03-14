@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <ul>   
+  </ul>
+  <input type="text" name="t1"> <br>
+  <button>КНОПКА</button>
+
+<script>
+  //Создайте пустой список ul под ним input для текста и кнопку . 
+  //При нажатии на кнопку, дабавляйте введенный текст в список сверху. 
+  //Если текст пустой, выводите alert с сообщением об ошибке
+  const text = document.querySelector('input');
+  const ul = document.querySelector('ul');
+  
+  document.body.addEventListener('click', event => {
+    if(event.target.nodeName == 'BUTTON'){
+      let li = document.createElement('li');
+      li.innerHTML = text.value;
+      ul.append(li);
+      text.value = '';
+      
+    }
+    event.preventDefault();
+  })
+
+
+
+</script>
+
+</body>
+</html>
