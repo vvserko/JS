@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
+    <title>Hello, world!</title>
+    <style>
+        .card-info {
+            margin-top: 20px;
+            padding: 30px;
+            background-color: lightgrey;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>photo</th>
+                            <th>gender</th>
+                            <th>name</th>
+                            <th>email</th>
+                            <th>phone</th>
+                        </tr>
+                    </thead>
+                    <tbody id="add">
+                        <tr>
+                            <td>
+                                <img src="https://randomuser.me/api/portraits/thumb/women/77.jpg" alt="" />
+                            </td>
+                            <td>female</td>
+                            <td>Açelya Leus</td>
+                            <td>celya.leus@example.com</td>
+                            <td>(300)-811-6504</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4 card-info">
+                <dl>
+                    <dt>Photo</dt>
+                    <dd><img src="https://randomuser.me/api/portraits/med/men/24.jpg" alt="" id="img"></dd>
+                    <dt>Gender</dt>
+                    <dd>male</dd>
+                    <dt>name</dt>
+                    <dd>Justin Chambers</dd>
+                    <dt>email</dt>
+                    <dd>justin.chambers@example.com</dd>
+                    <dt>phone</dt>
+                    <dd>071-554-8237</dd>
+                </dl>
+                <button class="btn btn-info">Add</button>
+                <button class="btn btn-danger">Next</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        //Используя API RandomUser, Реализовать функционал:
+        //+При загрузке страницы грузим юзера
+        //+Выводим его данные в карточку справа
+        //При нажатии кнопки Add добавляем юзера в таблицу (только нужные поля)
+        //При нажатии кнопки Next загружаем нового юзера
+
+        let arrPersons = [];
+
+        function addPerson(){
+            const add = document.getElementById('add');
+            const tr = document.createElement('tr');
+            arrPersons.forEach((person, index) => {
+                if (index === 0) {
+                    const td = document.createElement('td');
+                    td.innerHTML = `<img src="${person}" id= "as">`;
+                    tr.append(td);
+
+                } else {
+                    const td = document.createElement('td');
+                    td.textContent = person;
+                    tr.append(td);
+                }
+            });
+            add.append(tr);
+        }
+
+        function nextPerson() {
+            fetch('https://randomuser.me/api/')
+                .then(response => response.json())
+                .then(person => {
+
+                    const img = document.getElementById('img');
+                    console.log('img.src=', img.src);
+                    console.log(person);//[picture][medium]
+                    img.src = person.results[0].picture.medium;
+                    arrPersons.push(img.src);
+                    let gender = document.querySelectorAll('dd')[1];
+                    gender.textContent = person.results[0].gender;
+                    arrPersons.push(gender.textContent);
+
+                    const name = document.querySelectorAll('dd')[2];
+                    name.textContent = `${person.results[0].name.first} ${person.results[0].name.last}`;
+                    arrPersons.push(name.textContent);
+                    const email = document.querySelectorAll('dd')[3];
+                    email.textContent = person.results[0].email;
+                    arrPersons.push(email.textContent);
+                    const phone = document.querySelectorAll('dd')[4];
+                    phone.textContent = person.results[0].phone;
+                    arrPersons.push(phone.textContent);
+                    console.log(arrPersons);
+
+                });
+        }
+
+        nextPerson();
+
+        const btnInfo = document.body.querySelectorAll('BUTTON')[0];
+        const btnNext = document.body.querySelectorAll('BUTTON')[1];
+
+        btnInfo.onclick = function () {
+            addPerson();                       
+        }
+
+        btnNext.onclick = function () {
+            nextPerson();
+            arrPersons = [];
+        }
+
+    </script>
+</body>
+
+</html>

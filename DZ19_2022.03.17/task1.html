@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<form>
+    <input type="text" name="url" id="url1"><br>
+    <input type="submit" value="ЖМИ">
+    <div>
+    </div>
+</form>
+<body>
+    <script>
+        const form = document.forms[0];
+        form.addEventListener('submit', event => {
+            const url = form.elements.url.value;
+            console.log(url);
+            let img = document.createElement('img');
+            let div = document.body.querySelector('div');
+            img.src = `${url}`
+            div.append(img);
+            event.preventDefault();
+            img.onerror = function () {
+                alert("Ошибка загрузки " + this.src); // Ошибка загрузки https://example.com/404.js
+            };
+        })
+ 
+    //Создайте форму
+    //Добавьте в нее input для ввода url картинки
+    //Добавьте кнопку input type='submit'
+    //Добавьте пустой div
+    //При отправке формы нужно:
+    //Взять введенный url и вставить в div картинку с этим url
+    //Если картинка не грузится вывести в div сообщение об ошибке
+ 
+    </script>
+</body>
+</html>
