@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+th {
+  font-weight: bold;
+  background: #b0e0e6;
+  /* Цвет фона */
+}
+
+table {
+  width: 300px;
+  border-collapse: collapse;
+  /* Убираем двойные линии между ячейками */
+}
+
+td,
+th {
+  padding: 3px;
+  /* Поля вокруг содержимого таблицы */
+  border: 1px solid black;
+  /* Параметры рамки */
+  text-align: center;
+}
