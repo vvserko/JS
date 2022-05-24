@@ -18,8 +18,10 @@ function Repos() {
 
             {dataRepos.map(
                 elem => (
-                   
-                   <Link to={`/${elem.name}`} key={elem.id}>{elem.html_url} {<br/>}</Link>
+                    <div>
+                        <a href={`${elem.html_url}`} key={elem.id}>{elem.html_url} {<br />}</a>
+                    </div>
+
                 )
             )}
         </Fragment>
