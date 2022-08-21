@@ -1,0 +1,31 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:icalendar-ruby
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE;CN=Vladimir Serko;X-NUM-GUESTS=0:mailto:vvserko@gmail.com
+BEGIN:VTIMEZONE
+TZID:UTC
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+TZNAME:UTC
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20220528T095021Z
+UID:205968_9167_dn1
+DTSTART:20220601T160000Z
+DTEND:20220601T180000Z
+DESCRIPTION:Сохраните день проведения Подготовительный курс «JavaScript/Front-end. Stage 0 »\n\n\n\n\nС наилучшими пожеланиями\,\nкоманда RS School
+LOCATION:Online
+SUMMARY:Подготовительный курс «JavaScript/Front-end. Stage 0 ».
+X-ALT-DESC;FMTTYPE=text/html:<p>Сохраните день проведения <a style='color: #39c2d7\; text-decoration: none\; text-underline: none\; border-style: none\;' href=https://wearecommunity.io/events/js-stage0-rs-2022q2>Подготовительный курс «JavaScript/Front-end. Stage 0 »</a></p><p></p><p></p><p></p><p></p><p></p><p>С наилучшими пожеланиями\,</p><p>команда RS School</p><img src="https://wearecommunity.io//email-images/5a361b8e-4a60-4352-b3e3-08e484d11c8c.png" alt="" width="1" height="1"></img>
+BEGIN:VALARM
+ACTION:DISPLAY
+TRIGGER:-PT15M
+DESCRIPTION:Подготовительный курс «JavaScript/Front-end. Stage 0 ».
+END:VALARM
+END:VEVENT
+END:VCALENDAR
